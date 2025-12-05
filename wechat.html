@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>与闫佳明的对话</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background-color: #e5e5ea;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-header {
+      background-color: #07c160;
+      color: white;
+      padding: 12px 15px;
+      font-size: 17px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .chat-bubbles {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .message {
+      max-width: 70%;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 15px;
+      line-height: 1.4;
+      position: relative;
+    }
+    .received {
+      background-color: white;
+      align-self: flex-start;
+      border-bottom-left-radius: 3px;
+    }
+    .sent {
+      background-color: #dcf8c6;
+      align-self: flex-end;
+      border-bottom-right-radius: 3px;
+      color: black;
+    }
+    .input-area {
+      display: flex;
+      padding: 8px;
+      background: white;
+      border-top: 1px solid #d0d0d0;
+    }
+    .input-area input {
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 8px 15px;
+      outline: none;
+    }
+    .input-area button {
+      background: #07c160;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+    .hint {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-header">
+    闫佳明
+  </div>
+
+  <div class="chat-bubbles" id="chatBox">
+    <div class="message received">
+      你还记得贞仁吗？他让我找你。
+    </div>
+    <div class="message received">
+      我最近……有点记不清自己是谁了。
+    </div>
+    <div class="message received">
+      能帮我看看我的朋友圈吗？也许你能帮我找回完整的自己。
+    </div>
+  </div>
+
+  <div class="hint">
+    （提示：点击下方“查看朋友圈”开始调查）
+  </div>
+
+  <div class="input-area">
+    <input type="text" placeholder="输入消息..." disabled>
+    <button onclick="window.location.href='moments.html'">查看朋友圈</button>
+  </div>
+
+</body>
+</html>
