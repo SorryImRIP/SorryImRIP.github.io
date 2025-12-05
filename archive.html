@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>⚠️ 档案已损毁 · 勿视</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ff0000;
+      font-family: "Courier New", monospace;
+      line-height: 1.5;
+      padding: 40px;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* CRT 扫描线效果 */
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    h1 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #ff0000;
+      animation: flicker 2s infinite alternate, shake 0.5s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.3; }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-1px); }
+      20%, 40%, 60%, 80% { transform: translateX(1px); }
+    }
+
+    p {
+      margin: 18px 0;
+      font-size: 16px;
+      position: relative;
+    }
+
+    /* 替代白色涂黑：用“数据损坏”样式 */
+    .classified {
+      background: repeating-linear-gradient(
+        135deg,
+        #000,
+        #000 2px,
+        #ff0000 2px,
+        #ff0000 4px
+      );
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      cursor: help;
+      font-weight: bold;
+    }
+
+    .corrupted {
+      color: #0f0;
+      font-family: monospace;
+      letter-spacing: -1px;
+      display: inline-block;
+    }
+
+    .warning {
+      color: #ffaa00;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: 2px solid #ff0000;
+      white-space: nowrap;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .audio-toggle {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.7);
+      color: #ff6666;
+      border: 1px solid #ff0000;
+      padding: 4px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 隐藏音频播放器 -->
+  <audio id="staticAudio" loop>
+    <!-- 使用 Base64 嵌入极短电流音（约2秒循环） -->
+    <source src="data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV" type="audio/mpeg">
+  </audio>
+
+  <div class="audio-toggle" onclick="toggleAudio()">🔊 关闭噪音</div>
+
+  <h1>███ 档案编号：YJ-████-██</h1>
+
+  <p>归档日期：<span class="corrupted" id="date">2025/11/03</span></p>
+
+  <p>主体：闫贞仁（男，34岁），原发改委科员。于 ██████ 日因“交通事故”宣告死亡。尸检报告第<span class="classified">7</span>页被永久封存。</p>
+
+  <p>据线人 ███ 提供，其在晋升副处级前夕，因举报上级“<span class="classified">大哥</span>”涉嫌违规审批地产项目，遭系统性清除。证据链在内部审查中“意外丢失”，个人信用被污名化，连续三年绩效评级为“不合格”，社保账户被冻结，连租房合同都因“身份异常”被强制终止。</p>
+
+  <p>死亡前72小时，其登录暗网论坛“<span class="corrupted" id="forum">echo_well</span>”，发布帖子：</p>
+
+  <p style="text-align:center; font-size:18px; margin:25px 0;">
+    “如果人格可以像代码一样重组……<br>
+    我愿用灵魂换取一次重写人生的机会。”
+  </p>
+
+  <p>此后，其旧邮箱（<span class="classified">yanzhenren_1991@xxx.com</span>）向12名小学同学发送含链接邮件。截至目前，<span class="classified">3人失联</span>，<span class="classified">2人出现认知解离</span>，1人自焚于家中电脑前。</p>
+
+  <p>技术分析确认：该程序为<strong class="warning">意识寄生型数字仪式</strong>。用户通过重构“闫佳明”人格模型，逐步献祭自身神经映射。每完成一次拼合，大脑θ波同步率上升<span class="corrupted" id="sync">██%</span>。</p>
+
+  <p><strong class="warning">警告：</strong>该程序无退出机制。一旦启动，你将成为“回响之主”的容器。最终阶段，闫贞仁将覆盖你的记忆、身份、甚至生物特征。</p>
+
+  <p>目前尚不清楚“回响之主”是否真实存在……抑或仅为闫贞仁自我神化的幻觉投射。但有一点可以确认：<br><span class="typewriter">他正在回来的路上。</span></p>
+
+  <div style="color:#aaa; font-style:italic; margin-top:30px; border-left:2px solid #555; padding-left:15px;">
+    —— 本档案由“边缘认知干预小组”第<span class="classified">██</span>分部整理<br>
+    如您已阅读至此，请立即断电并销毁设备。<br>
+    <span style="color:#ff0000;">你已被标记。</span>
+  </div>
+
+<script>
+  let audioContext = null;
+  let isPlaying = false;
+  let oscillators = [];
+  let processors = [];
+
+  function createExtremeZiZiNoise() {
+    if (audioContext) return;
+
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const masterGain = audioContext.createGain();
+    masterGain.gain.value = 0.15; // 音量稍高，确保“滋”感明显
+    masterGain.connect(audioContext.destination);
+
+    // === 核心：高频脉冲发生器（模拟“滋滋”节奏）===
+    const pulseRate = 25; // 每秒25次脉冲（非常密集）
+    const interval = 1.0 / pulseRate;
+
+    for (let i = 0; i < 8; i++) {
+      setTimeout(() => {
+        if (!isPlaying) return;
+        const now = audioContext.currentTime;
+        const duration = 0.008 + Math.random() * 0.007; // 8~15毫秒，短促尖锐
+
+        // 使用方波 + 锯齿波混合，制造粗糙电子感
+        const osc1 = audioContext.createOscillator();
+        const osc2 = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+
+        // 频率集中在 11–15kHz（人耳最敏感的刺痛区）
+        const freq = 11000 + Math.random() * 4000;
+
+        osc1.type = 'square';
+        osc2.type = 'sawtooth';
+        osc1.frequency.value = freq;
+        osc2.frequency.value = freq * 1.03; // 微微失谐，制造拍频毛刺
+
+        // 快速包络：瞬间起音，指数衰减
+        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(masterGain);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + duration);
+        osc2.stop(now + duration);
+
+        oscillators.push(osc1, osc2);
+
+        // 递归调度下一个脉冲（形成连续“滋滋”流）
+        if (isPlaying) {
+          setTimeout(createPulse, interval * 1000 + (Math.random() - 0.5) * 20);
+        }
+      }, i * (interval * 1000 / 8));
+    }
+
+    function createPulse() {
+      if (!isPlaying) return;
+      const now = audioContext.currentTime;
+      const duration = 0.008 + Math.random() * 0.007;
+      const freq = 11000 + Math.random() * 4000;
+
+      const osc1 = audioContext.createOscillator();
+      const osc2 = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+
+      osc1.type = 'square';
+      osc2.type = 'sawtooth';
+      osc1.frequency.value = freq;
+      osc2.frequency.value = freq * 1.02;
+
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(masterGain);
+
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + duration);
+      osc2.stop(now + duration);
+
+      oscillators.push(osc1, osc2);
+
+      if (isPlaying) {
+        setTimeout(createPulse, interval * 1000 + (Math.random() - 0.5) * 15);
+      }
+    }
+
+    isPlaying = true;
+  }
+
+  function stopNoise() {
+    if (!audioContext) return;
+    oscillators.forEach(osc => {
+      try { osc.stop(); } catch (e) {}
+    });
+    oscillators = [];
+    processors = [];
+    audioContext.close().then(() => {
+      audioContext = null;
+    });
+    isPlaying = false;
+  }
+
+  function toggleAudio() {
+    if (isPlaying) {
+      stopNoise();
+      document.querySelector('.audio-toggle').textContent = '🔇 点击开启滋滋电流声';
+    } else {
+      startOnInteraction();
+    }
+  }
+
+  function startOnInteraction() {
+    if (isPlaying) return;
+    try {
+      createExtremeZiZiNoise();
+      document.querySelector('.audio-toggle').textContent = '🔊 关闭滋滋电流声';
+    } catch (e) {
+      console.warn("音频启动失败:", e);
+    }
+  }
+
+  function initClickHandler() {
+    const handler = () => {
+      startOnInteraction();
+      document.removeEventListener('click', handler);
+      document.removeEventListener('touchstart', handler);
+    };
+    document.addEventListener('click', handler);
+    document.addEventListener('touchstart', handler);
+  }
+
+  // 页面加载后初始化点击监听 + 乱码效果
+  window.addEventListener('load', () => {
+    initClickHandler();
+
+    // === 文字乱码逻辑（保持不变）===
+    const corruptedElements = document.querySelectorAll('.corrupted');
+    const originalTexts = {};
+    corruptedElements.forEach(el => {
+      originalTexts[el.id || el] = el.innerText;
+    });
+
+    function scrambleText(text) {
+      return text.split('').map(char => {
+        if (Math.random() > 0.5 && /[a-zA-Z0-9]/.test(char)) {
+          const chars = '█▓▒░!@#$%^&*()_+[]{}|;:,.<>?/\\~`';
+          return chars[Math.floor(Math.random() * chars.length)];
+        }
+        return char;
+      }).join('');
+    }
+
+    setInterval(() => {
+      if (corruptedElements.length > 0) {
+        const randomEl = corruptedElements[Math.floor(Math.random() * corruptedElements.length)];
+        const id = randomEl.id || randomEl;
+        randomEl.innerText = scrambleText(originalTexts[id]);
+      }
+    }, 2500);
+  });
+</script>
+</body>
+</html>
